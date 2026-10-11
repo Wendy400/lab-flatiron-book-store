@@ -45,3 +45,36 @@ const bookStore = {
 
 // Write your code here!
 
+const bookStoreTitle = document.getElementById("header");
+bookStoreTitle.textContent = bookStore.name;
+
+
+const bookList = document.getElementById("book-list");
+
+
+bookStore.books.forEach (book => {
+    const bookContainer = document.createElement("li");
+    const bookTitle = document.createElement("h3");
+    bookTitle.textContent= book.title;
+    bookTitle.style.textDecoration= "underline";
+    const bookAuthor=document.createElement("p");
+    bookAuthor.textContent= book.author;
+    const bookImage = document.createElement("img")
+    bookImage.src = book.imageUrl;
+
+
+    bookContainer.append(bookTitle, bookAuthor, bookImage)
+    bookList.appendChild(bookContainer);
+
+})
+//........deleting elements in the DOM.......
+const bookList2 = document.getElementById("delete-this");
+const deleteBook = bookList.children[0]; 
+if (deleteBook){
+  deleteBook.remove();
+}
+
+
+//const ul = document.getElementsByTagName("ul")[0];
+//const secondChild = ul.querySelector("li:nth-child(2)");
+//ul.removeChild(secondChild);
